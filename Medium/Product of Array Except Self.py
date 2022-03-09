@@ -1,4 +1,5 @@
 class Solution:
+    #Faster than 99%
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         res=[]
         prod=1
@@ -13,8 +14,8 @@ class Solution:
         for i in nums:
             if i==0 and z_count==1:
                 res.append(prod)
-            elif i!=0 and z_count==1:
+            elif z_count==1:
                 res.append(0)
             else:
-                res.append(int(prod/i))
+                res.append(prod//i)
         return res
