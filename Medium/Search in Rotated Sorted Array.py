@@ -8,8 +8,8 @@ class Solution:
             return -1
   '''
   #Expand from center
-  class Solution:
-    def search(self, nums: List[int], target: int) -> int:
+  '''
+  def search(self, nums: List[int], target: int) -> int:
         length=len(nums)-1
         if length==0:
             if target==nums[0]:
@@ -17,10 +17,8 @@ class Solution:
             else:
                 return -1
             
-        mid=length//2
-        l,r=mid,mid
+        l,r=length//2,length//2
 
-            
         while l>=0 or r<=length:
             if l>=0 and nums[l]==target:
                 return l
@@ -29,3 +27,5 @@ class Solution:
             l-=1
             r+=1
         return -1
+   '''
+   #Binary Search
