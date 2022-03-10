@@ -29,10 +29,9 @@ class Solution:
         return -1
    '''
    #Binary Search
-       def search(self, nums: List[int], target: int) -> int:
+   def search(self, nums: List[int], target: int) -> int:
         length=len(nums)
 
-        mid=length//2
         #length is 1
         if length==1:
             if nums[0]==target:
@@ -40,38 +39,24 @@ class Solution:
             else:
                 return -1
 
-        #mid is target
-        if nums[mid]==target:
-            return mid
-        #finding if we're to the left or right of the inflection point
-        #array is not pivoted
-        if nums[length-1]>nums[0]:
-            start=0
-            end=length-1
-        else:
-            if nums[mid]>=nums[0]:
-                if target>=nums[0]:
-                    start=0
-                    end=mid-1
-                else:
-                    start=mid+1
-                    end=length-1
-            else:
-                if target<nums[length-1] and target<nums[mid]:
-                    start=0
-                    end=mid-1
-                else:
-                    start=mid+1
-                    end=length-1
-
-        print(start,end)
+        start=0
+        end=length-1
+        #print(start,end)
         #binary search starts
         while start<=end:
             mid=(start+end)//2
-            if nums[mid]==target:
+            if target==nums[mid]:
                 return mid
-            if target>nums[mid]:
-                start=mid+1
+            #left
+            if nums[mid]>=nums[start]:
+                if target>nums[mid] or target<nums[start]:
+                    start=mid+1
+                else:
+                    end=mid-1
+            #right
             else:
-                end=mid-1
+                if target<nums[mid] or target>nums[end]:
+                    end=mid-1
+                else:
+                    start=mid+1
         return -1
