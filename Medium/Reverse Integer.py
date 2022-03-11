@@ -16,4 +16,29 @@ class Solution:
         else:
             return y
   '''
-            
+  #Still stores 64 bit numbers in edge cases
+  def reverse(self, x: int) -> int:
+        diglist=[]
+        k=1
+        if x<0:
+            x*=-1
+            k=0
+        while True:
+            digit=x%10
+            x-=digit
+            x/=10
+            diglist.append(digit)
+            if len(diglist)>10:
+                return 0
+            if x==0:
+                break
+            diglist = [i * 10 for i in diglist]
+
+        res=int(sum(diglist))
+        print(res)
+        if res>2**31-1:
+            return 0
+        if k==1:
+            return res
+        else:
+            return res*-1
