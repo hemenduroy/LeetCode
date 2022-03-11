@@ -43,7 +43,8 @@ class Solution:
         else:
             return res*-1
   '''
-  #Don't need an array
+  #Don't need an array. Still uses 64 bit integers
+  '''
   def reverse(self, x: int) -> int:
         res=0
         k=1
@@ -64,3 +65,22 @@ class Solution:
             return res
         else:
             return res*-1
+  '''
+  #before multiplying by 10, check if res exceeds MAX//10. also, check if res==MAX//10 and adding last digit would cause overflow
+  #same for MIN
+  #math.fmod used because using % with negative numbers in python returns unexpected values
+  def reverse(self, x: int) -> int:
+        MIN = -2147483648
+        MAX = 2147483647
+
+        res=0
+        while x:
+            digit=int(math.fmod(x,10))
+            x=int(x/10)
+
+            if (res>MAX//10 or (res==MAX//10 and digit>=MAX%10)):
+                return 0
+            if (res<MIN//10 or (res==MIN//10 and digit<=MIN%10)):
+                return 0
+            res=res*10+digit
+        return res
