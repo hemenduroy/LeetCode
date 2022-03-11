@@ -25,8 +25,7 @@ class Solution:
             k=0
         while True:
             digit=x%10
-            x-=digit
-            x/=10
+            x//=10
             diglist.append(digit)
             if len(diglist)>10:
                 return 0
