@@ -1,5 +1,6 @@
 class Solution:
   #Using str()
+  #Not allowed because 7 can't store a 64 bit integer at line 11
   '''
     def reverse(self, x: int) -> int:
         k=1
