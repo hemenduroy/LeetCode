@@ -24,6 +24,8 @@ class Solution {
                 start=mid+1;
             }
         }//end while
+        return start; // start will always have the correct position if element is not found. dont need the if conditions.
+        /*
         if(end<mid){
                 if(end==-1){
                     return 0;
@@ -35,5 +37,6 @@ class Solution {
             else{
                 return start;
             }
+        */
     }
 }
