@@ -105,4 +105,27 @@ returning...
 
 
 ['((()))', '(()())', '(())()', '()(())', '()()()']
+
+If we just need the count
+
+class Solution(object):
+    def generateParenthesis(self, n):
+        count=0
+        def paren(left, right):
+            nonlocal count
+            
+            if left == 0 and right == 0:
+                count+=1
+                return
+            
+            if left > 0:
+                paren(left-1, right)
+                
+            if right > left:
+                paren(left, right-1)
+            
+            return count
+        
+        res = paren(n, n)
+        return res
 '''
