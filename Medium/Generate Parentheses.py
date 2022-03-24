@@ -126,6 +126,6 @@ class Solution(object):
             
             return count
         
-        res = paren(n, n)
-        return res
+        paren(n, n)
+        return count
 '''
