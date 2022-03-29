@@ -7,7 +7,7 @@ class Solution:
         
         for i in range(length-1,-1,-1):
             for w in wordDict:
-                if i+len(w)<=length and s[i:i+len(w)]==w:
+                if s[i:i+len(w)]==w:
                     dp[i]=dp[i+len(w)]
                     if dp[i]:
                         break
