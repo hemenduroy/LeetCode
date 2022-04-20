@@ -13,10 +13,9 @@ class Solution:
                 if ops[i]=='+':
                     add=True
                     continue
-                elif ops[i]=='-':
+                if ops[i]=='-':
                     add=False
                     continue
-                
                     
                 if ops[i].isdigit():
                     if add:
@@ -26,9 +25,6 @@ class Solution:
                
             return res
         
-        
-        if ')' not in s:
-            return myEval(s)
         i=-1
         while i< len(s):
             if ')' not in s:
