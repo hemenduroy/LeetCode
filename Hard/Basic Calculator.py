@@ -5,7 +5,7 @@ class Solution:
         
         def myEval(string):
             string=string.replace(' ','').replace('--','+')
-            ops=re.split('(\W)',string)
+            ops=re.split('([+-])',string)
 
             res=0
             add=True
