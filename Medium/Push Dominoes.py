@@ -4,9 +4,7 @@ class Solution:
         while True:
             old=dominoes
             
-            dominoes=dominoes.replace('R.L','RXL')
-            dominoes=dominoes.replace('.L','LL')
-            dominoes=dominoes.replace('R.','RR')
+            dominoes=dominoes.replace('R.L','RXL').replace('.L','LL').replace('R.','RR')
             
             if dominoes==old:
                 break
