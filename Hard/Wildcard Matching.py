@@ -15,10 +15,16 @@ class Solution:
         
         for i in range(1,height+1):
             for j in range(1, width+1):
-                if s[i-1]==p[j-1] or p[j-1]=='?':
+                if s[i-1]==p[j-1] or p[j-1]=='?': # current char matches. Entire string matches if it had matched before this.
                     T[i][j] = T[i-1][j-1]
                 elif p[j-1]=='*':
                     T[i][j]=T[i-1][j] or T[i][j-1]
+                    # T[i-1][j] - * matches current char of s
+                    # so s till previous char must match with p
+                    # T[i][j-1] - * matches with empty sequence 
+                    # that means s till curent char matches p till previous char 
+                    # because current char of p i.e., * matches with empty string
+
 
         return T[height][width]
 '''
