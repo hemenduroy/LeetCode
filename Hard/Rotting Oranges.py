@@ -27,32 +27,27 @@ class Solution:
         for (x,y) in queue:
             visited.add((x,y))
         
-        #print(visited)
-        ops=[(0,1),(1,0),(0,-1),(-1,0)]
+        ops=[(0,1),(1,0),(0,-1),(-1,0)] #up right down left
         
         curr=len(queue)
         level=0
         while queue:
             
-            if curr==0:
-                level+=1
-                curr=len(queue)
+            if curr==0: #finished current level
+                level+=1 #elapse a minute
+                curr=len(queue) #set number of nodes to check in next minute
                 
             x,y=queue.pop(0)
             curr-=1
             
             for dx,dy in ops:
-                #print(dx,dy)
                 posX=x+dx
                 posY=y+dy
                 
 
                 if self.isInBound(posX,posY,rows,cols):
-                    #print(posX,posY)
                     if (posX,posY) not in visited and grid[posX][posY]==1:
-                        #print(x,y)
-                        #print(posX,posY)
-                        grid[posX][posY]=2
+                        grid[posX][posY]=2 #make fresh orange rotten
                         queue.append((posX,posY))
                         visited.add((posX,posY))
                         
@@ -60,12 +55,10 @@ class Solution:
         #bfs complete. check if fresh oranges are remaining
         #if they are, return -1. else return count
         
-        #print(grid)
         for i in grid:
             for j in i:
                 if j==1:
                     return -1
                 
-        #print(extra)
-        return level
+        return level #nth level = n minutes elapsed
             
