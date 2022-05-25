@@ -14,9 +14,9 @@ class Solution:
                 if left == M:
                     ans.append(word)
                     break
-                for right in range(1, M + 1): # rightust start from 1
+                for right in range(1, M + 1): # start from 1
                     if word[left:right] in S and right not in seen and not (left==0 and right==M): 
-                # that is, the word must be broken but not a complete one
+                    # that is, the word must be broken but not a complete one
                         stack.append(right)
                         seen.add(right)
         return ans
